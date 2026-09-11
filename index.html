@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#50cef4" />
+  <meta name="description" content="21Khanh — R6, Minecraft and content." />
+  <title>21Khanh</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="entry-locked">
+  <canvas id="waterCanvas" aria-hidden="true"></canvas>
+  <div class="light-rays" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <button class="enter-gate" id="enterGate" type="button" aria-label="Enter 21Khanh profile and start sound">
+    <span class="gate-glow" aria-hidden="true"></span>
+    <span class="gate-rings" aria-hidden="true"></span>
+    <span class="gate-title">TAP TO ENTER</span>
+  </button>
+
+  <header class="topbar">
+    <a class="mini-brand" href="#top" aria-label="21Khanh home">21K</a>
+    <nav aria-label="Profile links">
+      <button class="nav-pill" id="copyTop" type="button" aria-label="Copy Discord username">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 5.3A16 16 0 0 0 15.4 4l-.5 1a15 15 0 0 0-5.8 0l-.5-1a16 16 0 0 0-4.1 1.3C2 9.2 1.3 12.9 1.6 16.6A16.7 16.7 0 0 0 6.6 19l1.2-1.6c-.7-.3-1.3-.6-1.9-1l.5-.4a13.2 13.2 0 0 0 11.2 0l.5.4c-.6.4-1.2.7-1.9 1l1.2 1.6a16.7 16.7 0 0 0 5-2.4c.4-4.3-.7-8-2.9-11.3ZM8.9 14.3c-1.1 0-2-1-2-2.3s.9-2.3 2-2.3 2 1 2 2.3-.9 2.3-2 2.3Zm6.2 0c-1.1 0-2-1-2-2.3s.9-2.3 2-2.3 2 1 2 2.3-.9 2.3-2 2.3Z"/></svg>
+        <span>kkhanhsky</span>
+      </button>
+      <button class="sound-button" id="soundButton" type="button" aria-label="Toggle sound">
+        <svg class="sound-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6.8 9H3v6h3.8L11 19V5Z"/><path d="M15 9a4 4 0 0 1 0 6M17.8 6.5a7.5 7.5 0 0 1 0 11"/></svg>
+        <svg class="sound-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6.8 9H3v6h3.8L11 19V5ZM16 10l5 5M21 10l-5 5"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="name">
+      <div class="banner-ghost" aria-hidden="true"><img src="assets/21khanh-banner.png" alt="" /></div>
+      <div class="profile-glass" id="profileGlass">
+        <div class="glass-shimmer" aria-hidden="true"></div>
+        <div class="copy">
+          <p class="overline reveal">PLAYER PROFILE <span>•</span> EU</p>
+          <h1 id="name" class="bubble-title reveal">21Khanh</h1>
+          <p class="handle reveal">@kkhanhsky <b>•</b> R6 Player</p>
+          <p class="bio reveal">R6 clips, Minecraft grinds and clean edits.</p>
+          <div class="tags reveal" aria-label="Interests">
+            <span><i class="tag-dot cyan"></i>Rainbow Six Siege</span>
+            <span><i class="tag-dot blue"></i>DonutSMP</span>
+            <span><i class="tag-dot white"></i>Creator</span>
+          </div>
+          <div class="hero-actions reveal">
+            <button class="primary" id="copyDiscord" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 5.3A16 16 0 0 0 15.4 4l-.5 1a15 15 0 0 0-5.8 0l-.5-1a16 16 0 0 0-4.1 1.3C2 9.2 1.3 12.9 1.6 16.6A16.7 16.7 0 0 0 6.6 19l1.2-1.6c-.7-.3-1.3-.6-1.9-1l.5-.4a13.2 13.2 0 0 0 11.2 0l.5.4c-.6.4-1.2.7-1.9 1l1.2 1.6a16.7 16.7 0 0 0 5-2.4c.4-4.3-.7-8-2.9-11.3ZM8.9 14.3c-1.1 0-2-1-2-2.3s.9-2.3 2-2.3 2 1 2 2.3-.9 2.3-2 2.3Zm6.2 0c-1.1 0-2-1-2-2.3s.9-2.3 2-2.3 2 1 2 2.3-.9 2.3-2 2.3Z"/></svg>
+              Copy Discord
+            </button>
+            <a class="secondary" href="#world">Explore <span>↓</span></a>
+          </div>
+        </div>
+        <div class="avatar-zone" aria-hidden="true">
+          <span class="halo h1"></span><span class="halo h2"></span>
+          <img src="assets/21khanh-avatar.png" alt="" />
+          <span class="avatar-shadow"></span>
+        </div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"><span></span>scroll to dive</div>
+    </section>
+
+    <div class="wave-divider" aria-hidden="true">
+      <div class="wave wave-back"></div><div class="wave wave-mid"></div><div class="wave wave-front"></div>
+    </div>
+
+    <section class="world" id="world" aria-labelledby="worldTitle">
+      <div class="world-heading">
+        <p class="overline">INSIDE MY WORLD</p>
+        <h2 id="worldTitle">Three sides.<br /><em>One profile.</em></h2>
+      </div>
+      <div class="world-grid">
+        <article class="world-card card-r6">
+          <div class="card-top"><span>01</span><div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h8a5 5 0 0 1 4.8 3.6l1.1 4a3.5 3.5 0 0 1-5.8 3.5L14 15h-4l-2.1 2.1a3.5 3.5 0 0 1-5.8-3.5l1.1-4A5 5 0 0 1 8 6Z"/><path d="M7 10v4M5 12h4M16.5 11.5h.01M18.5 13.5h.01"/></svg></div></div>
+          <div><p>MAIN GAME</p><h3>Rainbow Six Siege</h3><small>Fast rounds. Clean clips. Late-night queues.</small></div>
+          <div class="card-line"></div>
+        </article>
+        <article class="world-card card-mc">
+          <div class="card-top"><span>02</span><div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg></div></div>
+          <div><p>THE GRIND</p><h3>Minecraft</h3><small>DonutSMP, custom projects and big builds.</small></div>
+          <div class="card-line"></div>
+        </article>
+        <article class="world-card card-create">
+          <div class="card-top"><span>03</span><div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h3l1.2-2h5.6L16 7h3a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"/><circle cx="12" cy="13" r="3"/></svg></div></div>
+          <div><p>THE VISION</p><h3>Creator</h3><small>Building something people remember.</small></div>
+          <div class="card-line"></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <aside class="music-dock" id="musicDock" aria-label="Now playing">
+    <div class="album-orb"><span></span><i></i></div>
+    <div class="track-copy"><span id="audioStatus">NOW PLAYING</span><strong>Not Again — A.T. mixxx</strong><small>Rio Da Yung Og &amp; A.T</small></div>
+    <button id="musicToggle" type="button" aria-label="Pause music"><span></span></button>
+    <div class="spotify-frame local-player" aria-label="Music progress">
+      <span id="currentTime">0:00</span>
+      <div class="track-progress"><i id="trackProgress"></i></div>
+      <span id="trackDuration">2:14</span>
+      <div class="wave-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+  </aside>
+
+  <audio id="introVoice" preload="auto" playsinline src="assets/intro-voice.mp3"></audio>
+  <audio id="musicTrack" preload="auto" playsinline loop src="assets/not-again.m4a"></audio>
+  <div class="toast" id="toast" role="status" aria-live="polite">Discord copied — @kkhanhsky</div>
+  <script src="app.js"></script>
+</body>
+</html>
